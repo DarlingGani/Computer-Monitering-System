@@ -4,10 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<jsp:include page="../static/dependancy.jsp"></jsp:include>
+<meta charset="UTF-8">
+<title>Add User</title>
+<jsp:include page="../static/dependancy.jsp"></jsp:include>
 <jsp:include page="../cmsStatic/header.jsp"></jsp:include>
+
 <spring:url value="/webresources/css/rfpHeader.css" var="headerCss" />
 <link href="${headerCss}" rel="stylesheet" />
 
@@ -38,7 +39,6 @@ font-size: 15px;
 table{
 	box-shadow: 0 4px 6px -2px gray;
 }
-
 </style>
 </head>
 <body>

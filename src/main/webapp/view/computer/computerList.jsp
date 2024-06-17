@@ -9,6 +9,7 @@
 <title>Computer List</title>
 <jsp:include page="../static/dependancy.jsp"></jsp:include>
 <jsp:include page="../cmsStatic/header.jsp"></jsp:include>
+
 <spring:url value="/webresources/css/rfpHeader.css" var="headerCss" />
 <link href="${headerCss}" rel="stylesheet" />
 
@@ -84,7 +85,7 @@ line-height: 2;
 </body>
 <script>
 $("#myTable1").DataTable({
-    "lengthMenu": [10, 20, 40, 60, 80, 100],
+    "lengthMenu": [7,10, 20, 40, 60, 80, 100],
      ordering: true
 });	
 

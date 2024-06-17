@@ -112,10 +112,12 @@ public class ComputerDaoImpl implements ComputerDao {
 		
 	}
 	
-	public final static String DELETEUSER = "sfsd";
+	public final static String DELETEUSER = "UPDATE computer_user SET IsActive=0 WHERE userId=:id";
 	@Override
 	public int deleteUser(int id) throws Exception {
 		Query query = em.createNativeQuery(DELETEUSER);
-		return 0;
+		query.setParameter("id", id);
+		
+		return query.executeUpdate();
 	}
 }

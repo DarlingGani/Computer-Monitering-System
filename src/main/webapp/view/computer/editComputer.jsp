@@ -4,10 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Edit Computer</title>
-	<jsp:include page="../static/dependancy.jsp"></jsp:include>
-	<jsp:include page="../cmsStatic/header.jsp"></jsp:include>
+<meta charset="UTF-8">
+<title>Edit Computer</title>
+<jsp:include page="../static/dependancy.jsp"></jsp:include>
+<jsp:include page="../cmsStatic/header.jsp"></jsp:include>
+
 <spring:url value="/webresources/css/rfpHeader.css" var="headerCss" />
 <link href="${headerCss}" rel="stylesheet" />
 
@@ -38,7 +39,6 @@ font-size: 15px;
 table{
 	box-shadow: 0 4px 6px -2px gray;
 }
-
 </style>
 </head>
 <body>
@@ -65,33 +65,23 @@ table{
 	  			<table class="table table-bordered table-hover  table-condensed "  >
 	      			<tr>
 	      				<th><label >Computer Name :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="computername" value="<%if(computerEditData != null && computerEditData[1] != null){ %><%=computerEditData[1].toString()%><%} %>" class="form-control form-control" maxlength="255" style="font-size: 15px;" required>
-	      				</td>
+	      				<td><input type="text" name="computername" value="<%if(computerEditData != null && computerEditData[1] != null){ %><%=computerEditData[1].toString()%><%} %>" class="form-control form-control" maxlength="255" style="font-size: 15px;" required></td>
 	       			</tr>
 	       			<tr>
 	      				<th><label >User Name :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="username" value="<%if(computerEditData != null && computerEditData[2] != null){ %><%=computerEditData[2].toString() %><%} %>"class="form-control form-control" maxlength="255" style="font-size: 15px;" required>
-	      				</td>
+	      				<td><input type="text" name="username" value="<%if(computerEditData != null && computerEditData[2] != null){ %><%=computerEditData[2].toString() %><%} %>"class="form-control form-control" maxlength="255" style="font-size: 15px;" required></td>
 	       			</tr>
 					<tr>
 	      				<th><label >Processor :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="processor" value="<%if(computerEditData != null && computerEditData[3] != null){ %><%=computerEditData[3].toString() %><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="processor" value="<%if(computerEditData != null && computerEditData[3] != null){ %><%=computerEditData[3].toString() %><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 					<tr>
 	      				<th><label >RAM :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="ram" value="<%if(computerEditData != null && computerEditData[4] != null){ %><%=computerEditData[4].toString() %><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="ram" value="<%if(computerEditData != null && computerEditData[4] != null){ %><%=computerEditData[4].toString() %><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 					<tr>
 	      				<th><label >ROM :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="rom" value="<%if(computerEditData != null && computerEditData[5] != null){ %><%=computerEditData[5].toString() %><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="rom" value="<%if(computerEditData != null && computerEditData[5] != null){ %><%=computerEditData[5].toString() %><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 	       			<tr>
 	       				<td colspan="2">
@@ -105,5 +95,4 @@ table{
 	</div>
 </div>
 </body>
-
 </html>

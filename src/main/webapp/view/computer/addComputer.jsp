@@ -8,6 +8,7 @@
 <title>Add Computer</title>
 <jsp:include page="../static/dependancy.jsp"></jsp:include>
 <jsp:include page="../cmsStatic/header.jsp"></jsp:include>
+
 <spring:url value="/webresources/css/rfpHeader.css" var="headerCss" />
 <link href="${headerCss}" rel="stylesheet" />
 
@@ -38,7 +39,6 @@ font-size: 15px;
 table{
 	box-shadow: 0 4px 6px -2px gray;
 }
-
 </style>
 </head>
 <body>
@@ -64,33 +64,23 @@ table{
 	  			<table class="table table-bordered table-hover  table-condensed " >
 	      			<tr>
 	      				<th><label >Computer Name :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="computername" class="form-control form-control" placeholder="Computer Name" required="required" maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="computername" class="form-control form-control" placeholder="Computer Name" required="required" maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 	       			<tr>
 	      				<th><label >User Name :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="username" class="form-control form-control" placeholder="User Name" required="required" maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="username" class="form-control form-control" placeholder="User Name" required="required" maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 					<tr>
 	      				<th><label >Processor :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="processor" class="form-control form-control" placeholder="Processor" required="required" maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="processor" class="form-control form-control" placeholder="Processor" required="required" maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 					<tr>
 	      				<th><label >RAM :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="ram" class="form-control form-control" placeholder="RAM" required="required" maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="ram" class="form-control form-control" placeholder="RAM" required="required" maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 					<tr>
 	      				<th><label >ROM :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td>
-	       					<input type="text" name="rom" class="form-control form-control" placeholder="ROM" required="required" maxlength="255" style="font-size: 15px;">
-	      				</td>
+	      				<td><input type="text" name="rom" class="form-control form-control" placeholder="ROM" required="required" maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 	       			<tr>
 	       				<td colspan="2">

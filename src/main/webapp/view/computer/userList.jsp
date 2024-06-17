@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>User List</title>
 <jsp:include page="../static/dependancy.jsp"></jsp:include>
 <jsp:include page="../cmsStatic/header.jsp"></jsp:include>
 <spring:url value="/webresources/css/rfpHeader.css" var="headerCss" />
@@ -79,8 +79,8 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 								<%} %></td>
 							<td><%if(obj[5]!=null){%><%=sdf.format(obj[5])%><%}else{ %>-<%} %></td>
 							<td><div align="center">
-									<button type="submit" name="id" value="<%=obj[0] %>formaction="EditUser.htm" class="btn btn-warning btn-sm edit">Edit</button>
-									<button type="submit" name="id" value="<%=obj[0] %> formaction="DeleteUser.htm" class="btn btn-danger btn-sm delete">Delete</button>
+									<button type="submit" formaction="EditUser.htm" name="id" value="<%=obj[0] %>" class="btn btn-warning btn-sm edit">Edit</button>
+									<button type="submit" formaction="DeleteUser.htm" onclick="return deleteUser();" name="id" value="<%=obj[0] %>" class="btn btn-danger btn-sm delete">Delete</button>
 								</div>
 							</td>
 						</tr>
@@ -89,7 +89,6 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 					</tbody>
 				</table><br>
 					<center><button type="submit" formaction="AddUser.htm" class="btn btn-primary btn-sm add">Add</button></center>
-						
 			</form>
 		</div>
 	</div>
@@ -97,8 +96,15 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 </body>
 <script>
 $("#myTable1").DataTable({
-    "lengthMenu": [10, 20, 40, 60, 80, 100],
+    "lengthMenu": [7,10, 20, 40, 60, 80, 100],
      ordering: true
 });	
+function deleteUser() { 
+	if(confirm("Are you sure To Delete?")) {
+		return true;
+	} else {
+		return false;
+	}
+}
 </script>
 </html>
