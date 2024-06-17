@@ -101,6 +101,7 @@ public class ComputerDaoImpl implements ComputerDao {
 	public int saveAddUser(UserEntity user) throws Exception {
 		Query query = em.createNativeQuery(ADDUSER);
 		query.setParameter("username", user.getUserName());
+		
 		query.setParameter("dob", user.getDateOfBirth());
 		query.setParameter("address", user.getAddress());
 		query.setParameter("gender", user.getGender());
