@@ -23,4 +23,8 @@ public interface ComputerDao {
 
 	public int deleteUser(int id) throws Exception;
 
+	public Object[] getUserEditData(int id) throws Exception;
+
+	public int updateEditUser(UserEntity user) throws Exception;
+
 }

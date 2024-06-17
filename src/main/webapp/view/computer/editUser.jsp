@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add User</title>
+<title>Edit User</title>
 <jsp:include page="../static/dependancy.jsp"></jsp:include>
 <jsp:include page="../cmsStatic/header.jsp"></jsp:include>
 
@@ -46,68 +46,61 @@ table{
 	<div class="card-header page-top">
 		<div class="row">
 			<div class="col-md-3 heading-breadcrumb">
-				<h5 style="font-weight: 700 !important">Add User </h5>
+				<h5 style="font-weight: 700 !important"><b>Edit Computer</b></h5>
 			</div>
 			<div class="col-md-9 " >
 				<nav aria-label="breadcrumb">
 				 	<ol class="breadcrumb ">
 				    	<li class="breadcrumb-item ml-auto"><a href="ComputerList.htm"><i class="fa fa-home"></i> Home</a></li>
-				    	<li class="breadcrumb-item"><a href="MasterDashboard.htm"><i class="fa fa-home"></i> Master Dashboard</a></li>
-				    	<li class="breadcrumb-item"><a href="UserList.htm"><i class="fa fa-home"></i> User List</a></li>
-				    	<li class="breadcrumb-item active">Add User </li>
-				  	</ol>
+				    	<li class="breadcrumb-item"><a href="MasterDashboard.htm"><i class="fa fa-address-book"></i> Master Dashboard</a></li>
+				    	<li class="breadcrumb-item"><a href="UserList.htm"><i class="fa fa-address-book"></i> User List</a></li>
+				    	<li class="breadcrumb-item active">User Edit</li>
+				    </ol>
 				</nav>
 			</div>			
 		</div>
 	</div>
 	<div class="card-body" style="width: 99%">
+	
 		<div class="table-responsive" style="width: 50%; margin: auto;padding: 10px;">
 			<form>
+			<%Object[] userData = (Object[]) request.getAttribute("userData"); %>
 	  			<table class="table table-bordered table-hover  table-condensed "  >
 	      			<tr>
 	      				<th><label >User Name :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="text" name="username" class="form-control form-control" placeholder="User Name" required="required" maxlength="30" style="font-size: 15px;"></td>
+	      				<td><input type="text" name="username" value="<%if(userData != null && userData[1] != null){ %><%=userData[1].toString()%><%} %>" class="form-control form-control" maxlength="255" style="font-size: 15px;" required></td>
 	       			</tr>
 	       			<tr>
 	      				<th><label >Date of Birth :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="date" name="dob" class="form-control form-control" required="required" style="font-size: 15px;"></td>
+	      				<td><input type="date" name="dob" value="<%if(userData != null && userData[2] != null){ %><%=userData[2].toString()%><%} %>" class="form-control form-control" maxlength="255" style="font-size: 15px;" required></td>
 	       			</tr>
 					<tr>
 	      				<th><label >Gender :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><select name="gender" class="form-control form-control" required="required" style="font-size: 15px;">
-	      						<option  selected disabled>--Select--</option>
-	      						<option value="M">Male</option>
-	      						<option value="F">Female</option>
-	      						<option value="O">Others</option>
-	      					</select></td>
+	       				<td><select name="gender" class="form-control form-control" required style="font-size: 15px;">
+	       					<option value="M" <%if(userData != null && userData[4] != null && userData[4].toString().equalsIgnoreCase("M")){ %> selected <%} %>>Male</option>
+	       					<option value="F" <%if(userData != null && userData[4] != null && userData[4].toString().equalsIgnoreCase("F")){ %> selected <%} %>>Female</option>
+	       					<option value="O" <%if(userData != null && userData[4] != null && userData[4].toString().equalsIgnoreCase("O")){ %> selected <%} %>>Others</option>
+	       				</select></td>
 	       			</tr>
 					<tr>
 	      				<th><label >Address :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="text" name="address" class="form-control form-control" placeholder="Address" required maxlength="100" style="font-size: 15px;"></td>
+	      				<td><input type="text" name="address" value="<%if(userData != null && userData[3] != null){ %><%=userData[3].toString()%><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 					<tr>
 	      				<th><label >Date of Joining :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="date" name="doj" class="form-control form-control" placeholder="Date of Joining" required style="font-size: 15px;"></td>
+	      				<td><input type="date" name="doj" value="<%if(userData != null && userData[5] != null){ %><%=userData[5].toString()%><%} %>" class="form-control form-control" required maxlength="255" style="font-size: 15px;"></td>
 	       			</tr>
 	       			<tr>
 	       				<td colspan="2">
-	       					<button type="submit" onclick="return addUser();" formaction="SaveAddUser.htm" class="btn btn-primary btn-sm submit">Save</button>
-							<button type="submit" class="btn btn-warning btn-sm edit" formaction="UserList.htm" formnovalidate="formnovalidate">Back</button>
-	       				</td>
-	       			</tr>
+							<button type="submit" formaction="UpdateEditUser.htm"class="btn btn-primary btn-sm submit">Update</button>
+							<button type="submit" formaction="UserList.htm" class="btn btn-warning btn-sm edit" formnovalidate>Back</button>
+						</td>
+					</tr>
 				</table>
+				
 			</form>
 		</div>
 	</div>
 </div>
 </body>
-<script type="text/javascript">
-	function addUser() { 
-		if(confirm("Are you sure To Add?")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-</script>
 </html>

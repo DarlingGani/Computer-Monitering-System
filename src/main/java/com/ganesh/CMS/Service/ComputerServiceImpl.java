@@ -61,4 +61,16 @@ public class ComputerServiceImpl implements ComputerService {
 		
 		return dao.deleteUser(id);
 	}
+	
+	@Override
+	public Object[] getUserEditData(int id) throws Exception {
+		
+		return dao.getUserEditData(id);
+	}
+	
+	@Override
+	public int updateEditUser(UserEntity user) throws Exception {
+		
+		return dao.updateEditUser(user);
+	}
 }

@@ -196,4 +196,36 @@ public class ComputerController {
 			return "null";
 		}
 	}
+	
+	@RequestMapping(value = "EditUser.htm")
+	public String editUser(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
+		try {
+			Object[] userData = service.getUserEditData(Integer.parseInt(req.getParameter("id")));
+			req.setAttribute("userData", userData);
+			
+			return "editUser";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "null";
+		}
+	}
+	
+	@RequestMapping(value = "SaveEditUser.htm")
+	public String updateEditUser(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
+		try {
+			UserEntity user = new UserEntity();
+			user.setUserId(Integer.parseInt(req.getParameter("id")));
+			user.setUserName(req.getParameter("username"));
+			user.setGender(req.getParameter("gender"));
+			user.setAddress(req.getParameter("address"));
+			user.setDateOfBirth(req.getParameter("dob"));
+			user.setDateOfJoin(req.getParameter("doj"));
+			user.setModifiedDate(dtf.format(now));
+			int updateUser = service.updateEditUser(user);
+			return "redirect:/UserList.htm";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "null";
+		}
+	}
 }

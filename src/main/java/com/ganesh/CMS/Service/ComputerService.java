@@ -13,7 +13,7 @@ public interface ComputerService {
 
 	public int deleteComputer(long id) throws Exception;
 
-	public Object[] getComputerEditData(int int1) throws Exception;
+	public Object[] getComputerEditData(int id) throws Exception;
 
 	public int updateEditComputer(ComputerEntity computer) throws Exception;
 
@@ -21,6 +21,10 @@ public interface ComputerService {
 
 	public int saveAddUser(UserEntity user) throws Exception;
 
-	public int deleteUser(int int1) throws Exception;
+	public int deleteUser(int id) throws Exception;
+
+	public Object[] getUserEditData(int id) throws Exception;
+
+	public int updateEditUser(UserEntity user) throws Exception;
 
 }

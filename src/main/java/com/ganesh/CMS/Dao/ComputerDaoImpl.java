@@ -120,4 +120,19 @@ public class ComputerDaoImpl implements ComputerDao {
 		
 		return query.executeUpdate();
 	}
+	
+	public final static String EDITUSER = "SELECT userId, userName, dateOfBirth, address, gender, dateOfJoin FROM computer_user WHERE userId=:id";
+	@Override
+	public Object[] getUserEditData(int id) throws Exception {
+		Query query = em.createNativeQuery(EDITUSER);
+		query.setParameter("id", id);
+		return (Object[]) query.getSingleResult();
+	}
+	
+	public final static String UPDATEUSER = "";
+	@Override
+	public int updateEditUser(UserEntity user) throws Exception {
+		Query query = em.createNativeQuery(UPDATEUSER);
+		return 0;
+	}
 }
