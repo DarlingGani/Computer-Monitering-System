@@ -41,6 +41,8 @@ public class ComputerController {
 	@RequestMapping(value = "AddComputer.htm")
 	public String addComputer(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
+			List<Object[]> userList = service.userDropdownList();
+			req.setAttribute("userDropdownList", userList);
 			
 			return "addComputer";
 		}catch (Exception e) {
@@ -223,6 +225,19 @@ public class ComputerController {
 			user.setModifiedDate(dtf.format(now));
 			int updateUser = service.updateEditUser(user);
 			return "redirect:/UserList.htm";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "null";
+		}
+	}
+	
+	@RequestMapping(value = "UserDropdownList.htm")
+	public String userDropdownList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
+		try {
+			List<Object[]> userList = service.userDropdownList();
+			req.setAttribute("userDropdownList", userList);
+			
+			return "";
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "null";

@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -42,6 +43,8 @@ table{
 </style>
 </head>
 <body>
+<%List<Object[]> userDropdownList = (List<Object[]>)request.getAttribute("userDropdownList"); %>
+<%System.out.println("List Size "+userDropdownList.size());%>
 <div class="page-wrapper">
 	<div class="card-header page-top">
 		<div class="row">
@@ -67,8 +70,18 @@ table{
 	      				<td><input type="text" name="computername" class="form-control form-control" placeholder="Computer Name" required="required" maxlength="25" style="font-size: 15px;"></td>
 	       			</tr>
 	       			<tr>
+	       			
 	      				<th><label >User Name :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="text" name="username" class="form-control form-control" placeholder="User Name" required="required" maxlength="30" style="font-size: 15px;"></td>
+	      				<td>
+<!-- 	      				<input type="text" name="username" class="form-control form-control" placeholder="User Name" required="required" maxlength="30" style="font-size: 15px;">
+ -->	      			<select name="username">
+ 							<%for(Object[] obj : userDropdownList) {%>
+ 							<option value="<%=obj[0] %>"><%=obj[1] %></option>
+ 							<%} %>
+ 						</select>
+ 
+ 
+ 	</td>
 	       			</tr>
 					<tr>
 	      				<th><label >Processor :<span class="mandatory" style="color: red;">*</span></label></th>

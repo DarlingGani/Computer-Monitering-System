@@ -73,4 +73,10 @@ public class ComputerServiceImpl implements ComputerService {
 		
 		return dao.updateEditUser(user);
 	}
+	
+	@Override
+	public List<Object[]> userDropdownList() throws Exception {
+		
+		return dao.userDropdownList();
+	}
 }

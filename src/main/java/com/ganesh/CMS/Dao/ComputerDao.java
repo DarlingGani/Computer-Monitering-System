@@ -27,4 +27,6 @@ public interface ComputerDao {
 
 	public int updateEditUser(UserEntity user) throws Exception;
 
+	public List<Object[]> userDropdownList() throws Exception;
+
 }

@@ -27,4 +27,6 @@ public interface ComputerService {
 
 	public int updateEditUser(UserEntity user) throws Exception;
 
+	public List<Object[]> userDropdownList() throws Exception;
+
 }

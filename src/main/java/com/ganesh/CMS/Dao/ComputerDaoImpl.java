@@ -19,7 +19,7 @@ public class ComputerDaoImpl implements ComputerDao {
 	@PersistenceContext
 	EntityManager em;
 	
-	public final static String COMPUTERLIST = "SELECT computerId, computerName, userName, processor, ram, rom FROM computer WHERE IsActive=1";
+	public final static String COMPUTERLIST = "SELECT a.computerId, a.computerName, a.userName, a.processor, a.ram, a.rom FROM computer a,computer_user b WHERE a.userName=b.userName AND a.IsActive=1";
 	@Override
 	public List<Object[]> computerList() throws Exception {
 		try {
@@ -134,5 +134,13 @@ public class ComputerDaoImpl implements ComputerDao {
 	public int updateEditUser(UserEntity user) throws Exception {
 		Query query = em.createNativeQuery(UPDATEUSER);
 		return 0;
+	}
+	
+	public final static String USERDROPDOWNLIST = "SELECT userId, userName FROM computer_user where IsActive=1";
+	@Override
+	public List<Object[]> userDropdownList() throws Exception {
+		Query query = em.createNativeQuery(USERDROPDOWNLIST);
+		
+		return query.getResultList();
 	}
 }
