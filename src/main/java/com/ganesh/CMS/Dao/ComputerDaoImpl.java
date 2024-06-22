@@ -143,4 +143,20 @@ public class ComputerDaoImpl implements ComputerDao {
 		
 		return query.getResultList();
 	}
+	
+	public final static String NATIONALFESTIVALSLIST = "SELECT festivalId, festivalType, festivalName, festivalDate FROM festivals WHERE festivalType='N' ORDER BY festivalDate";
+	@Override
+	public List<Object[]> festivalsList() throws Exception {
+		Query query = em.createNativeQuery(NATIONALFESTIVALSLIST);
+		
+		return query.getResultList();
+	}
+	
+	public final static String REAGIONALFESTIVALSLIST = "SELECT festivalId, festivalType, festivalName, festivalDate FROM festivals WHERE festivalType='R' ORDER BY festivalDate";
+	@Override
+	public List<Object[]> festivals1List() throws Exception {
+		Query query = em.createNativeQuery(REAGIONALFESTIVALSLIST);
+		
+		return query.getResultList();
+	}
 }

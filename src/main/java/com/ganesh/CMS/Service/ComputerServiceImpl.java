@@ -79,4 +79,16 @@ public class ComputerServiceImpl implements ComputerService {
 		
 		return dao.userDropdownList();
 	}
+
+	@Override
+	public List<Object[]> festivalsList() throws Exception {
+		
+		return dao.festivalsList();
+	}
+	
+	@Override
+	public List<Object[]> festivals1List() throws Exception {
+		
+		return dao.festivals1List();
+	}
 }

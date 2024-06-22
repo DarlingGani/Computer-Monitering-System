@@ -29,4 +29,8 @@ public interface ComputerDao {
 
 	public List<Object[]> userDropdownList() throws Exception;
 
+	public List<Object[]> festivalsList() throws Exception;
+
+	public List<Object[]> festivals1List() throws Exception;
+
 }

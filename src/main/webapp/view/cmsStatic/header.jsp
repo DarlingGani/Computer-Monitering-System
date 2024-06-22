@@ -29,7 +29,7 @@
 			<div class="col-md-2 " >
 				<nav aria-label="breadcrumb" >
 				 	<ol class="breadcrumb " style="background-color:#3572EF;">
-				 		<li class="breadcrumb-item ml-auto"><a href="ComputerList.htm"><button class="btn btn-sm btn-success"><i class="fa fa-home"></i> Home</button></a></li>
+				 		<li class="breadcrumb-item ml-auto"><a href="Dashboard.htm"><button class="btn btn-sm btn-success"><i class="fa fa-home"></i> Home</button></a></li>
 				    	<li class="breadcrumb-item"><a href="MasterDashboard.htm"><button class="btn btn-sm btn-success">Master</button></a></li>
 				    </ol>
 				</nav>

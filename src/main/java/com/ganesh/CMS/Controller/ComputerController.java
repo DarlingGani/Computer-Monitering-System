@@ -25,6 +25,21 @@ public class ComputerController {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	
+	@RequestMapping(value = {"Dashboard.htm"})
+	public String dashboard(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
+		try {
+			List<Object[]> festList = service.festivalsList();
+			//List<Object[]> fest1List = service.festivals1List();
+			
+			req.setAttribute("festList", festList);
+			req.setAttribute("fest1List", service.festivals1List());
+			
+			return "dashboard";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "null";
+		}
+	}
 	@RequestMapping(value = "/")
 	public String computerList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
