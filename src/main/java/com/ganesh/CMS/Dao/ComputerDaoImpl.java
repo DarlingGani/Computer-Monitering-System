@@ -159,4 +159,11 @@ public class ComputerDaoImpl implements ComputerDao {
 		
 		return query.getResultList();
 	}
+	
+	public final static String DOBLIST = "SELECT";
+	@Override
+	public List<Object[]> dobList() throws Exception {
+		Query query = em.createNativeQuery(DOBLIST);
+		return null;
+	}
 }

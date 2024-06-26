@@ -33,4 +33,6 @@ public interface ComputerDao {
 
 	public List<Object[]> festivals1List() throws Exception;
 
+	public List<Object[]> dobList() throws Exception;
+
 }

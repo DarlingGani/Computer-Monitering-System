@@ -91,4 +91,10 @@ public class ComputerServiceImpl implements ComputerService {
 		
 		return dao.festivals1List();
 	}
+
+	@Override
+	public List<Object[]> dobList() throws Exception {
+		
+		return dao.dobList();
+	}
 }
