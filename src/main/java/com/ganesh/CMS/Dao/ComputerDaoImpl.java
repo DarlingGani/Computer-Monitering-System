@@ -160,10 +160,11 @@ public class ComputerDaoImpl implements ComputerDao {
 		return query.getResultList();
 	}
 	
-	public final static String DOBLIST = "SELECT";
+	public final static String DOBLIST = "SELECT userId, userName, dateOfBirth FROM computer_user WHERE IsActive=1";
 	@Override
 	public List<Object[]> dobList() throws Exception {
 		Query query = em.createNativeQuery(DOBLIST);
-		return null;
+		System.out.println(query.getResultList().size());
+		return query.getResultList();
 	}
 }

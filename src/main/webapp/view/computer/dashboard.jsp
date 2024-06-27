@@ -40,6 +40,8 @@
 SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
 List<Object[]> festList = (List<Object[]>) request.getAttribute("festList");
 List<Object[]> fest1List = (List<Object[]>) request.getAttribute("fest1List");
+List<Object[]> dobList = (List<Object[]>) request.getAttribute("dobList");
+System.out.println("dobList.size() "+dobList.size());
 %>
 <div class="card-body" style="width: 95%">
 	<%-- <div class="col-md-2" id="festList"  style="display: inline-block; float: left!important; width: 100%;"> 
@@ -98,9 +100,12 @@ List<Object[]> fest1List = (List<Object[]>) request.getAttribute("fest1List");
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td></td>
+					<%if(dobList !=null && dobList.size()>0){ %>
+						<%for(Object[] obj : dobList){ %>
+						<tr data-toggle="tooltip" data-placement="top" data-original-title="<%=obj[1] %>">
+							<td><%=obj[1] %><br><%if(obj[2]!=null){%><%=sdf.format(obj[2])%><%}else{ %>-<%} %></td>
 						</tr>
+						<%}} %>
 					</tbody>
 				</table>
 			</div>

@@ -33,8 +33,8 @@ public class ComputerController {
 			
 			req.setAttribute("festList", festList);
 			req.setAttribute("fest1List", service.festivals1List());
-			req.setAttribute("dob", service.dobList());
-			
+			req.setAttribute("dobList", service.dobList());
+			System.out.println(service.dobList().size());
 			return "dashboard";
 		}catch (Exception e) {
 			e.printStackTrace();
