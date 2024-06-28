@@ -16,10 +16,22 @@ public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userId;
-	private String userName;
+	private String firstName;
+	private String secondName;
 	private String dateOfBirth;
-	private String address;
 	private String gender;
+	private long mobile;
+	private String personalMail;
+	private String officeMail;
+	private String maritialStatus;
+	private long aadhar;
+	private String address;
+	private String pan;
+	private String uan;
+	private String bankName;
+	private String accountNumber;
+	private String ifsc;
+	private String branch;
 	private String dateOfJoin;
 	private String CreatedBy;
 	private String CreatedDate;

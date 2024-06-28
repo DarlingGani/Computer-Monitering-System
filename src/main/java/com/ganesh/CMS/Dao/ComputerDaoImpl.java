@@ -88,7 +88,7 @@ public class ComputerDaoImpl implements ComputerDao {
 		return query.executeUpdate();
 	}
 	
-	public final static String USERLIST = "SELECT userId, userName, dateOfBirth, address, gender, dateOfJoin FROM computer_user WHERE IsActive=1";
+	public final static String USERLIST = "SELECT userId, firstName, secondName, dateOfBirth, address, gender, dateOfJoin FROM computer_user WHERE IsActive=1";
 	@Override
 	public List<Object[]> userList() throws Exception {
 		Query query = em.createNativeQuery(USERLIST);
