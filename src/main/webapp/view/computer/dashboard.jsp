@@ -41,7 +41,6 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
 List<Object[]> festList = (List<Object[]>) request.getAttribute("festList");
 List<Object[]> fest1List = (List<Object[]>) request.getAttribute("fest1List");
 List<Object[]> dobList = (List<Object[]>) request.getAttribute("dobList");
-System.out.println("dobList.size() "+dobList.size());
 %>
 <div class="card-body" style="width: 95%">
 	<%-- <div class="col-md-2" id="festList"  style="display: inline-block; float: left!important; width: 100%;"> 

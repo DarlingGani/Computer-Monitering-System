@@ -19,7 +19,7 @@ public class ComputerDaoImpl implements ComputerDao {
 	@PersistenceContext
 	EntityManager em;
 	
-	public final static String COMPUTERLIST = "SELECT a.computerId, a.computerName, a.userName, a.processor, a.ram, a.rom FROM computer a,computer_user b WHERE a.userName=b.userName AND a.IsActive=1";
+	public final static String COMPUTERLIST = "SELECT a.computerId, a.computerName, a.userId, a.processor, a.ram, a.rom FROM computer a,computer_user b WHERE a.userId=b.userId AND a.IsActive=1";
 	@Override
 	public List<Object[]> computerList() throws Exception {
 		try {
@@ -88,7 +88,7 @@ public class ComputerDaoImpl implements ComputerDao {
 		return query.executeUpdate();
 	}
 	
-	public final static String USERLIST = "SELECT userId, firstName, secondName, dateOfBirth, address, gender, dateOfJoin FROM computer_user WHERE IsActive=1";
+	public final static String USERLIST = "SELECT userId, firstName, secondName, dateOfBirth, address, gender, dateOfJoin, mobile FROM computer_user WHERE IsActive=1";
 	@Override
 	public List<Object[]> userList() throws Exception {
 		Query query = em.createNativeQuery(USERLIST);
@@ -160,11 +160,11 @@ public class ComputerDaoImpl implements ComputerDao {
 		return query.getResultList();
 	}
 	
-	public final static String DOBLIST = "SELECT userId, userName, dateOfBirth FROM computer_user WHERE IsActive=1";
+	public final static String DOBLIST = "SELECT userId, firstName, dateOfBirth FROM computer_user WHERE IsActive=1";
 	@Override
 	public List<Object[]> dobList() throws Exception {
 		Query query = em.createNativeQuery(DOBLIST);
-		System.out.println(query.getResultList().size());
+		
 		return query.getResultList();
 	}
 }
