@@ -19,7 +19,7 @@ public class ComputerDaoImpl implements ComputerDao {
 	@PersistenceContext
 	EntityManager em;
 	
-	public final static String COMPUTERLIST = "SELECT a.computerId, a.computerName, a.userName, a.processor, a.ram, a.rom FROM computer a,computer_user b WHERE a.userName=b.userName AND a.IsActive=1";
+	public final static String COMPUTERLIST = "SELECT a.computerId, a.computerName, a.userId, a.processor, a.ram, a.rom FROM computer a,computer_user b WHERE a.userId=b.userId AND a.IsActive=1";
 	@Override
 	public List<Object[]> computerList() throws Exception {
 		try {
