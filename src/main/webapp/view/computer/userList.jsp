@@ -71,7 +71,6 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 						<tr style="line-height: 2;">
 							<td><%=obj[1] %> <%=obj[2] %></td>
 							<td><%if(obj[3]!=null){%><%=sdf.format(obj[3])%><%}else{ %>-<%} %></td>
-							<td><%=obj[4] %></td>
 							<td><%if(obj[5].equals('M')) { %>
 									Male 
 								<%} else if(obj[5].equals('F')) { %>
@@ -79,10 +78,12 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 								<%} else if(obj[5].equals('O')) { %>
 									Others
 								<%} %></td>
+							<td><%=obj[7] %></td>
+							<td><%=obj[4] %></td>
 							<td><%if(obj[6]!=null){%><%=sdf.format(obj[6])%><%}else{ %>-<%} %></td>
 							<td><div align="center">
 									<button type="submit" formaction="EditUser.htm" name="id" value="<%=obj[0] %>" class="btn btn-warning btn-sm edit">Edit</button>
-									<button type="submit" formaction="ViewUser.htm" name="id" value="<%=obj[0] %>" class="btn btn-warning btn-sm edit">Edit</button>
+									<button type="submit" formaction="ViewUser.htm" name="id" value="<%=obj[0] %>" class="btn btn-warning btn-sm edit">View</button>
 									<button type="submit" formaction="DeleteUser.htm" onclick="return deleteUser();" name="id" value="<%=obj[0] %>" class="btn btn-danger btn-sm delete">Delete</button>
 								</div>
 							</td>

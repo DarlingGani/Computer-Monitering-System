@@ -63,7 +63,7 @@ table{
 	<div class="card-body" style="width: 99%; padding:0">
 		<div class="table-responsive" style="width: 50%; margin: auto;padding: 10px;">
 			<form>
-	  			<table class="table table-bordered table-hover  table-condensed "  >
+	  			<table class="table  "  >
 	      			<tr>
 	      				<th><label >First Name :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="text" name="firstname" class="form-control form-control" placeholder="First Name" maxlength="30" style="font-size: 15px;" required></td>
@@ -83,7 +83,7 @@ table{
 	       			</tr>
 	       			<tr>
 	      				<th><label >Mobile :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="number" name="mobile" class="form-control form-control" placeholder="Mobile" maxlength="10" style="font-size: 15px;" required></td>
+	      				<td><input type="text" name="mobile" id="numberField" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Mobile" maxlength="10" style="font-size: 15px;" required></td>
 	      				<th><label >Personal Mail :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="email" name="personalmail" class="form-control form-control" placeholder="Personal Mail" maxlength="50" style="font-size: 15px;" required></td>
 	       			</tr>
@@ -95,7 +95,7 @@ table{
 	       			</tr>
 	       			<tr>
 	      				<th><label >Aadhar :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="number" name="aadhar" class="form-control form-control" placeholder="Aadhar" maxlength="12" style="font-size: 15px;" required></td>
+	      				<td><input type="text" name="aadhar" id="numberField" onkeypress="return isNumberKey(event)" class="form-control form-control" placeholder="Aadhar" maxlength="12" style="font-size: 15px;" required></td>
 	      				<th><label >Address :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="text" name="address" class="form-control form-control" placeholder="Address" maxlength="255" style="font-size: 15px;" required></td>
 	       			</tr>
@@ -143,5 +143,13 @@ table{
 			return false;
 		}
 	}
+
+	function isNumberKey(evt) {
+		  const char = evt.key;
+		  if (char < '0' || char > '9') {
+		    return false;
+		  }
+		  return true;
+		}
 </script>
 </html>
