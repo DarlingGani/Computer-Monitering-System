@@ -41,6 +41,7 @@ public class ComputerController {
 			return "null";
 		}
 	}
+	
 	@RequestMapping(value = "/")
 	public String computerList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
@@ -91,7 +92,6 @@ public class ComputerController {
 			return "null";
 		}
 	}
-	
 	@RequestMapping(value = "ComputerList.htm")
 	public String backComputerList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
