@@ -47,7 +47,7 @@ line-height: 2;
 	</div>
 	<div class="card-body" style="width: 99%">
 		<div class="table-responsive" style="overflow:hidden;">
-			<form>
+			<form method="post">
 				<table class="table table-bordered table-hover table-striped table-condensed" style="width: 99%;" id="myTable1">
 					<thead>
 						<tr>
@@ -94,7 +94,7 @@ function deleteComputer() {
 	var fields = $("input[name='id']").serializeArray();
     console.log("id :"+fields);
 	if (fields.length === 0) {
-		alert("Please Select any one button");
+		alert("Please Select any one Record");
 		event.preventDefault();
 		return false;
 	}else{
@@ -110,7 +110,7 @@ function editComputer() {
 	var fields = $("input[name='id']").serializeArray();
     console.log("id :"+fields);
 	if (fields.length === 0) {
-		alert("Please Select any one button");
+		alert("Please Select any one Record");
 		event.preventDefault();
 		return false;
 	}

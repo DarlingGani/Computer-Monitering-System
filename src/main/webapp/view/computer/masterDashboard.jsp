@@ -42,30 +42,22 @@
     	<div class="container">
     	
     		 <div class="row">
-         		<!--<div class="col-md-3 col-xl-3">
-            		<a id="DakDetailedList" href="DakList.htm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click Here to Add Computer">
-        				<div class="card bg-c-blue order-card" style="background-color:red"><br>
-                				<h5 class="m-b-15" style="color:black;text-align:center"><b>Computer</b></h5><br>
-            			</div>
-					</a>
-            	</div>
-				<div class="col-md-3 col-xl-3">
- 					<a href="DakPendingReplyList.htm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Click Here to Add User">
-    					<div class="card bg-c-green order-card">
-							<div class="card-block"><br>
-								<h5 class="m-b-15" style="color:black;text-align:center"><b>User</b></h5><br>
-							</div>
-						</div>
-					</a>
-				</div> -->
 				<div class="text-white col-md-3 col-xl-3" style="max-width: 15rem;text-align:center">
 					<a href="UserList.htm" data-toggle="tooltip" data-placement="top" data-original-title="Click Here to Add User">
-  					<div class="card-body" style="top: 0;background: linear-gradient(to bottom, #363795, #457fca);z-index: 10;"><br>
-    					<h5 class="card-title">User</h5>
-    					<p class="card-text"></p>
-  					</div>
+  						<div class="card-body" style="top: 0;background: linear-gradient(to bottom, #363795, #457fca);z-index: 10;"><br>
+	    					<h5 class="card-title">User</h5>
+	    					<p class="card-text"></p>
+  						</div>
   					</a>
-			</div>
+				</div>
+				<div class="text-white col-md-3 col-xl-3" style="max-width: 15rem;text-align:center">
+					<a href="UserList.htm" data-toggle="tooltip" data-placement="top" data-original-title="Click Here to Add Computer">
+  						<div class="card-body" style="top: 0;background: linear-gradient(to bottom, #363795, #457fca);z-index: 10;"><br>
+	    					<h5 class="card-title">Computer</h5>
+	    					<p class="card-text"></p>
+  						</div>
+  					</a>
+				</div>
 			</div>
 		</div>
 	</div>

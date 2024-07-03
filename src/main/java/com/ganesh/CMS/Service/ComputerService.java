@@ -7,6 +7,13 @@ import com.ganesh.CMS.Entity.UserEntity;
 
 public interface ComputerService {
 
+	
+	public List<Object[]> festivalsList() throws Exception;
+
+	public List<Object[]> festivals1List() throws Exception;
+
+	public List<Object[]> dobList() throws Exception;
+	
 	public List<Object[]> computerList() throws Exception;
 
 	public int saveAddComputer(ComputerEntity computer) throws Exception;
@@ -29,10 +36,6 @@ public interface ComputerService {
 
 	public List<Object[]> userDropdownList() throws Exception;
 
-	public List<Object[]> festivalsList() throws Exception;
-
-	public List<Object[]> festivals1List() throws Exception;
-
-	public List<Object[]> dobList() throws Exception;
+	
 
 }

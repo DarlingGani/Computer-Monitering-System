@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ganesh.CMS.Entity.ComputerEntity;
@@ -25,7 +26,7 @@ public class ComputerController {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	
-	@RequestMapping(value = {"Dashboard.htm"})
+	@RequestMapping(value = {"/","Dashboard.htm"})
 	public String dashboard(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
 			List<Object[]> festList = service.festivalsList();
@@ -42,8 +43,8 @@ public class ComputerController {
 		}
 	}
 	
-	@RequestMapping(value = "/")
-	public String computerList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
+	@RequestMapping(value = "ComputerList.htm")
+	public String backComputerList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
 			List<Object[]> list = service.computerList();
 			req.setAttribute("jspList", list);
@@ -53,9 +54,10 @@ public class ComputerController {
 			e.printStackTrace();
 			return "null";
 		}
+		
 	}
 	
-	@RequestMapping(value = "AddComputer.htm")
+	@RequestMapping(value = "AddComputer.htm", method=RequestMethod.POST)
 	public String addComputer(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
 			List<Object[]> userList = service.userDropdownList();
@@ -67,6 +69,20 @@ public class ComputerController {
 			return "null";
 		}
 	}
+	/*@RequestMapping(value = "ComputerList.htm")
+	public String computerList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
+		try {
+			List<Object[]> list = service.computerList();
+			req.setAttribute("jspList", list);
+			
+			return "computerList";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "null";
+		}
+	}*/
+	
+	
 	
 	@RequestMapping(value = "SaveAddComputer.htm")
 	public String saveAddComputer(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
@@ -92,19 +108,7 @@ public class ComputerController {
 			return "null";
 		}
 	}
-	@RequestMapping(value = "ComputerList.htm")
-	public String backComputerList(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
-		try {
-			List<Object[]> list = service.computerList();
-			req.setAttribute("jspList", list);
-			
-			return "computerList";
-		}catch (Exception e) {
-			e.printStackTrace();
-			return "null";
-		}
-		
-	}
+	
 	
 	@RequestMapping(value = "EditComputer.htm")
 	public String editComputer(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
@@ -123,7 +127,6 @@ public class ComputerController {
 	public String updateEditComputer(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
 			ComputerEntity computer = new ComputerEntity();
-			System.out.println(req.getParameter("id"));
 			computer.setComputerId(Integer.parseInt(req.getParameter("id")));
 			computer.setComputerName(req.getParameter("computername"));
 			computer.setUserName(req.getParameter("username"));
@@ -254,6 +257,17 @@ public class ComputerController {
 			req.setAttribute("userDropdownList", userList);
 			
 			return "";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "null";
+		}
+	}
+	
+	@RequestMapping(value = "ViewUser.htm")
+	public String viewUser(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) {
+		try {
+			
+			return "userView";
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "null";

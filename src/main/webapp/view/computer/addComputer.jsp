@@ -44,7 +44,6 @@ table{
 </head>
 <body>
 <%List<Object[]> userDropdownList = (List<Object[]>)request.getAttribute("userDropdownList"); %>
-<%System.out.println("List Size "+userDropdownList.size());%>
 <div class="page-wrapper">
 	<div class="card-header page-top">
 		<div class="row">
@@ -63,7 +62,7 @@ table{
 	</div>
 	<div class="card-body" style="width: 99%">
 		<div class="table-responsive" style="width: 50%; margin: auto;padding: 10px;">
-			<form>
+			<form method="post">
 	  			<table class="table table-bordered table-hover  table-condensed " >
 	      			<tr>
 	      				<th><label >Computer Name :<span class="mandatory" style="color: red;">*</span></label></th>
@@ -74,7 +73,7 @@ table{
 	      				<th><label >User Name :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td>
 <!-- 	      				<input type="text" name="username" class="form-control form-control" placeholder="User Name" required="required" maxlength="30" style="font-size: 15px;">
- -->	      			<select name="username">
+ -->	      			<select name="username" class="form-control form-control"required style="font-size: 15px;">
  							<%for(Object[] obj : userDropdownList) {%>
  							<option value="<%=obj[0] %>"><%=obj[1] %></option>
  							<%} %>

@@ -16,9 +16,33 @@ public class ComputerServiceImpl implements ComputerService {
 	ComputerDao dao;
 	
 	@Override
+	public List<Object[]> festivalsList() throws Exception {
+		
+		return dao.festivalsList();
+	}
+	
+	@Override
+	public List<Object[]> festivals1List() throws Exception {
+		
+		return dao.festivals1List();
+	}
+
+	@Override
+	public List<Object[]> dobList() throws Exception {
+		
+		return dao.dobList();
+	}
+	
+	@Override
 	public List<Object[]> computerList() throws Exception {
 		
 		return dao.computerList();
+	}
+	
+	@Override
+	public List<Object[]> userDropdownList() throws Exception {
+		
+		return dao.userDropdownList();
 	}
 	
 	@Override
@@ -74,27 +98,7 @@ public class ComputerServiceImpl implements ComputerService {
 		return dao.updateEditUser(user);
 	}
 	
-	@Override
-	public List<Object[]> userDropdownList() throws Exception {
-		
-		return dao.userDropdownList();
-	}
-
-	@Override
-	public List<Object[]> festivalsList() throws Exception {
-		
-		return dao.festivalsList();
-	}
 	
-	@Override
-	public List<Object[]> festivals1List() throws Exception {
-		
-		return dao.festivals1List();
-	}
 
-	@Override
-	public List<Object[]> dobList() throws Exception {
-		
-		return dao.dobList();
-	}
+	
 }

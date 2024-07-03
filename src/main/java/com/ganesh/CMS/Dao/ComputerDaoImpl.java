@@ -19,6 +19,30 @@ public class ComputerDaoImpl implements ComputerDao {
 	@PersistenceContext
 	EntityManager em;
 	
+	public final static String NATIONALFESTIVALSLIST = "SELECT festivalId, festivalType, festivalName, festivalDate FROM festivals WHERE festivalType='N' ORDER BY festivalDate";
+	@Override
+	public List<Object[]> festivalsList() throws Exception {
+		Query query = em.createNativeQuery(NATIONALFESTIVALSLIST);
+		
+		return query.getResultList();
+	}
+	
+	public final static String REAGIONALFESTIVALSLIST = "SELECT festivalId, festivalType, festivalName, festivalDate FROM festivals WHERE festivalType='R' ORDER BY festivalDate";
+	@Override
+	public List<Object[]> festivals1List() throws Exception {
+		Query query = em.createNativeQuery(REAGIONALFESTIVALSLIST);
+		
+		return query.getResultList();
+	}
+	
+	public final static String DOBLIST = "SELECT userId, firstName, dateOfBirth FROM computer_user WHERE IsActive=1";
+	@Override
+	public List<Object[]> dobList() throws Exception {
+		Query query = em.createNativeQuery(DOBLIST);
+		
+		return query.getResultList();
+	}
+	
 	public final static String COMPUTERLIST = "SELECT a.computerId, a.computerName, a.userId, a.processor, a.ram, a.rom FROM computer a,computer_user b WHERE a.userId=b.userId AND a.IsActive=1";
 	@Override
 	public List<Object[]> computerList() throws Exception {
@@ -32,7 +56,15 @@ public class ComputerDaoImpl implements ComputerDao {
 		}
 	}
 	
-	public final static String ADDCOMPUTER = "INSERT INTO computer (computerName, userName, processor, ram, rom, CreatedDate) VALUES(:computername, :username, :processor, :ram, :rom, :createddate)";
+	public final static String USERDROPDOWNLIST = "SELECT userId, firstName FROM computer_user where IsActive=1";
+	@Override
+	public List<Object[]> userDropdownList() throws Exception {
+		Query query = em.createNativeQuery(USERDROPDOWNLIST);
+		
+		return query.getResultList();
+	}
+	
+	public final static String ADDCOMPUTER = "INSERT INTO computer (computerName, userId, processor, ram, rom, CreatedDate) VALUES(:computername, :username, :processor, :ram, :rom, :createddate)";
 	@Override
 	public int saveAddComputer(ComputerEntity computer) throws Exception {
 		try {
@@ -65,7 +97,7 @@ public class ComputerDaoImpl implements ComputerDao {
 		}
 	}
 	
-	public final static String EDITCOMPUTERDATA = "SELECT computerId, computerName, userName, processor, ram, rom FROM computer WHERE computerId =:id";
+	public final static String EDITCOMPUTERDATA = "SELECT computerId, computerName, userId, processor, ram, rom FROM computer WHERE computerId =:id";
 	@Override
 	public Object[] getComputerEditData(int id) throws Exception {
 		Query query = em.createNativeQuery(EDITCOMPUTERDATA);
@@ -73,7 +105,7 @@ public class ComputerDaoImpl implements ComputerDao {
 		return (Object[]) query.getSingleResult();
 	}
 	
-	public final static String UPDATEEDITCOMPUTER = "UPDATE computer SET computerName=:computername, userName=:username, processor=:processor, ram=:ram, rom=:rom, ModifiedDate=:modifieddate WHERE computerId=:id";
+	public final static String UPDATEEDITCOMPUTER = "UPDATE computer SET computerName=:computername, userId=:username, processor=:processor, ram=:ram, rom=:rom, ModifiedDate=:modifieddate WHERE computerId=:id";
 	@Override
 	public int updateEditComputer(ComputerEntity computer) throws Exception {
 		Query query = em.createNativeQuery(UPDATEEDITCOMPUTER);
@@ -136,35 +168,7 @@ public class ComputerDaoImpl implements ComputerDao {
 		return 0;
 	}
 	
-	public final static String USERDROPDOWNLIST = "SELECT userId, userName FROM computer_user where IsActive=1";
-	@Override
-	public List<Object[]> userDropdownList() throws Exception {
-		Query query = em.createNativeQuery(USERDROPDOWNLIST);
-		
-		return query.getResultList();
-	}
 	
-	public final static String NATIONALFESTIVALSLIST = "SELECT festivalId, festivalType, festivalName, festivalDate FROM festivals WHERE festivalType='N' ORDER BY festivalDate";
-	@Override
-	public List<Object[]> festivalsList() throws Exception {
-		Query query = em.createNativeQuery(NATIONALFESTIVALSLIST);
-		
-		return query.getResultList();
-	}
 	
-	public final static String REAGIONALFESTIVALSLIST = "SELECT festivalId, festivalType, festivalName, festivalDate FROM festivals WHERE festivalType='R' ORDER BY festivalDate";
-	@Override
-	public List<Object[]> festivals1List() throws Exception {
-		Query query = em.createNativeQuery(REAGIONALFESTIVALSLIST);
-		
-		return query.getResultList();
-	}
 	
-	public final static String DOBLIST = "SELECT userId, firstName, dateOfBirth FROM computer_user WHERE IsActive=1";
-	@Override
-	public List<Object[]> dobList() throws Exception {
-		Query query = em.createNativeQuery(DOBLIST);
-		
-		return query.getResultList();
-	}
 }

@@ -85,7 +85,7 @@ table{
 	       			</tr>
 	       			<tr>
 	       				<td colspan="2">
-							<button type="submit" name="id" value="<%=computerEditData[0] %>" class="btn btn-primary btn-sm submit" formaction="UpdateEditComputer.htm">Update</button>
+							<button type="submit" name="id" value="<%=computerEditData[0] %>" class="btn btn-primary btn-sm submit" formaction="UpdateEditComputer.htm" onclick="return updateComputer();">Update</button>
 							<button type="submit" class="btn btn-warning btn-sm edit" formaction="ComputerList.htm" formnovalidate>Back</button>
 						</td>
 					</tr>
@@ -95,4 +95,13 @@ table{
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	function updateComputer() { 
+		if(confirm("Are you sure To Update?")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
 </html>
