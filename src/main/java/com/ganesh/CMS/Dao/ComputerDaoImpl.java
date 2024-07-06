@@ -120,7 +120,7 @@ public class ComputerDaoImpl implements ComputerDao {
 		return query.executeUpdate();
 	}
 	
-	public final static String USERLIST = "SELECT userId, firstName, secondName, dateOfBirth, address, gender, dateOfJoin, mobile FROM computer_user WHERE IsActive=1";
+	public final static String USERLIST = "SELECT userId, firstName, secondName, dateOfBirth, gender, mobile, officeMail, personalMail, dateOfJoin FROM computer_user WHERE IsActive=1";
 	@Override
 	public List<Object[]> userList() throws Exception {
 		Query query = em.createNativeQuery(USERLIST);
@@ -128,17 +128,31 @@ public class ComputerDaoImpl implements ComputerDao {
 		return query.getResultList();
 	}
 	
-	public final static String ADDUSER = "INSERT INTO computer_user (userName, dateOfBirth, address, gender, dateOfJoin,CreatedDate) VALUES( :username, :dob, :address, :gender, :doj, :CreatedDate)";
+	public final static String ADDUSER = "INSERT INTO computer_user (firstName, secondName, dateOfBirth, gender, mobile, maritialStatus, officeMail, "
+			+ "personalMail, aadhar, dateOfJoin, pan, uan, bankName, accountNumber, ifsc, branch, address, CreatedDate) "
+			+ "VALUES( :firstname, :lastname, :dob, :gender, :mobile, :maritualstatus, :officemail, :personalmail, :aadhar, "
+			+ ":doj, :pan, :uan, :bankname, :accountnumber, :ifsccode, :branch, :address, :createddate)";
 	@Override
 	public int saveAddUser(UserEntity user) throws Exception {
 		Query query = em.createNativeQuery(ADDUSER);
-		query.setParameter("username", user.getUserName());
-		
+		query.setParameter("firstname", user.getFirstName());
+		query.setParameter("lastname", user.getSecondName());
 		query.setParameter("dob", user.getDateOfBirth());
-		query.setParameter("address", user.getAddress());
 		query.setParameter("gender", user.getGender());
+		query.setParameter("mobile", user.getMobile());
+		query.setParameter("maritualstatus", user.getMaritialStatus());
+		query.setParameter("officemail", user.getOfficeMail());
+		query.setParameter("personalmail", user.getPersonalMail());
+		query.setParameter("aadhar", user.getAadhar());
 		query.setParameter("doj", user.getDateOfJoin());
-		query.setParameter("CreatedDate", user.getCreatedDate());
+		query.setParameter("pan", user.getPan());
+		query.setParameter("uan", user.getUan());
+		query.setParameter("bankname", user.getBankName());
+		query.setParameter("accountnumber", user.getAccountNumber());
+		query.setParameter("ifsccode", user.getIfsc());
+		query.setParameter("branch", user.getBranch());
+		query.setParameter("address", user.getAddress());
+		query.setParameter("createddate", user.getCreatedDate());
 		return query.executeUpdate();
 		
 		
@@ -153,7 +167,7 @@ public class ComputerDaoImpl implements ComputerDao {
 		return query.executeUpdate();
 	}
 	
-	public final static String EDITUSER = "SELECT userId, userName, dateOfBirth, address, gender, dateOfJoin FROM computer_user WHERE userId=:id";
+	public final static String EDITUSER = "SELECT userId, firstName, secondName, dateOfBirth, gender, mobile, maritialStatus, officeMail, personalMail, aadhar, dateOfJoin, pan, uan, bankName, accountNumber, ifsc, branch, address FROM computer_user WHERE userId=:id";
 	@Override
 	public Object[] getUserEditData(int id) throws Exception {
 		Query query = em.createNativeQuery(EDITUSER);
@@ -161,11 +175,34 @@ public class ComputerDaoImpl implements ComputerDao {
 		return (Object[]) query.getSingleResult();
 	}
 	
-	public final static String UPDATEUSER = "";
+	public final static String UPDATEUSER = "UPDATE computer_user "
+			+ "SET firstName = :firstname, secondName = :secondname, dateOfBirth = :dob, gender = :gender, mobile = :mobile, "
+			+ "maritialStatus = :maritialstatus, officeMail = :officemail, personalMail = :personalmail, aadhar = :aadhar, "
+			+ "dateOfJoin = :doj, pan = :pan, uan = :uan, bankName = :bankname, accountNumber = accountnumber, ifsc = :ifsc, "
+			+ "branch = :branch, address = :address WHERE userId = :id";
 	@Override
 	public int updateEditUser(UserEntity user) throws Exception {
 		Query query = em.createNativeQuery(UPDATEUSER);
-		return 0;
+		query.setParameter("id", user.getUserId());
+		query.setParameter("firstname", user.getFirstName());
+		query.setParameter("secondname", user.getSecondName());
+		query.setParameter("dob", user.getDateOfBirth());
+		query.setParameter("gender", user.getGender());
+		query.setParameter("mobile", user.getMobile());
+		query.setParameter("maritialstatus", user.getMaritialStatus());
+		query.setParameter("officemail", user.getOfficeMail());
+		query.setParameter("personalmail", user.getPersonalMail());
+		query.setParameter("aadhar", user.getAadhar());
+		query.setParameter("doj", user.getDateOfJoin());
+		query.setParameter("pan", user.getPan());
+		query.setParameter("uan", user.getUan());
+		query.setParameter("bankname", user.getBankName());
+		query.setParameter("accountnumber", user.getAccountNumber());
+		query.setParameter("ifsc", user.getIfsc());
+		query.setParameter("branch", user.getBranch());
+		query.setParameter("address", user.getAddress());
+		
+		return query.executeUpdate();
 	}
 	
 	

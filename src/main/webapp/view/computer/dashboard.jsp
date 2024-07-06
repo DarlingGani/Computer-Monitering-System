@@ -53,10 +53,12 @@ List<Object[]> dobList = (List<Object[]>) request.getAttribute("dobList");
             </div><br>
             <%} }%>
 	  	     </div> --%>
+	  	     <div class="combined" style="display: flex; flex-direction: column;">
 	<div class="col-md-12 row">
-		<div class="col-md-2" style="float: left !important; text-align: left;">
+		<div class="col-md-2" style="float: left !important; text-align: left; margin: 0; padding: 0;">
 			<div class="table-responsive table-wrapper" style="display: inline-block;">
 				<table class="table table-bordered table-hover table-striped table-condensed">
+				
 					<thead>
 						<tr>
 							<th>National Festival dates</th>
@@ -72,7 +74,7 @@ List<Object[]> dobList = (List<Object[]>) request.getAttribute("dobList");
 				</table>
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-2" style="margin: 0; padding: 0;">
 			<div class="table-responsive table-wrapper">
 				<table class="table table-bordered table-hover table-striped table-condensed">
 					<thead>
@@ -90,7 +92,10 @@ List<Object[]> dobList = (List<Object[]>) request.getAttribute("dobList");
 				</table>
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-6">
+		
+		</div>
+		<div class="col-md-2" style="margin: 0; padding: 0;">
 			<div class="table-responsive table-wrapper">
 				<table class="table table-bordered table-hover table-striped table-condensed">
 					<thead>
@@ -109,6 +114,8 @@ List<Object[]> dobList = (List<Object[]>) request.getAttribute("dobList");
 				</table>
 			</div>
 		</div>
+		
+	</div>
 	</div>
 </div>
 </body>

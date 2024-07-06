@@ -46,15 +46,20 @@
 					<a href="UserList.htm" data-toggle="tooltip" data-placement="top" data-original-title="Click Here to Add User">
   						<div class="card-body" style="top: 0;background: linear-gradient(to bottom, #363795, #457fca);z-index: 10;"><br>
 	    					<h5 class="card-title">User</h5>
-	    					<p class="card-text"></p>
   						</div>
   					</a>
 				</div>
 				<div class="text-white col-md-3 col-xl-3" style="max-width: 15rem;text-align:center">
-					<a href="UserList.htm" data-toggle="tooltip" data-placement="top" data-original-title="Click Here to Add Computer">
+					<a href="Computer.htm" data-toggle="tooltip" data-placement="top" data-original-title="Click Here to Add Computer">
   						<div class="card-body" style="top: 0;background: linear-gradient(to bottom, #363795, #457fca);z-index: 10;"><br>
 	    					<h5 class="card-title">Computer</h5>
-	    					<p class="card-text"></p>
+  						</div>
+  					</a>
+				</div>
+				<div class="text-white col-md-3 col-xl-3" style="max-width: 15rem;text-align:center">
+					<a href="Festival.htm" data-toggle="tooltip" data-placement="top" data-original-title="Click Here to Add Computer">
+  						<div class="card-body" style="top: 0;background: linear-gradient(to bottom, #363795, #457fca);z-index: 10;"><br>
+	    					<h5 class="card-title">Festival</h5>
   						</div>
   					</a>
 				</div>

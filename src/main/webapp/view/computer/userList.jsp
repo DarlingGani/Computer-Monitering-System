@@ -60,7 +60,8 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 							<th class="text-nowrap">Date of Birth</th>
 							<th class="text-nowrap">Gender</th>
 							<th class="text-nowrap">Mobile</th>
-							<th class="text-nowrap">Address</th>
+							<th class="text-nowrap">Office Mail</th>
+							<th class="text-nowrap">Personal Mail</th>
 							<th class="text-nowrap">Date of Joining</th>
 							<th class="text-nowrap">Action</th>
 						</tr>
@@ -71,20 +72,21 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 						<tr style="line-height: 2;">
 							<td><%=obj[1] %> <%=obj[2] %></td>
 							<td><%if(obj[3]!=null){%><%=sdf.format(obj[3])%><%}else{ %>-<%} %></td>
-							<td><%if(obj[5].equals('M')) { %>
+							<td><%if(obj[4].equals('M')) { %>
 									Male 
-								<%} else if(obj[5].equals('F')) { %>
+								<%} else if(obj[4].equals('F')) { %>
 									Female
-								<%} else if(obj[5].equals('O')) { %>
+								<%} else if(obj[4].equals('O')) { %>
 									Others
 								<%} %></td>
+							<td><%=obj[5] %></td>
+							<td><%=obj[6] %></td>
 							<td><%=obj[7] %></td>
-							<td><%=obj[4] %></td>
-							<td><%if(obj[6]!=null){%><%=sdf.format(obj[6])%><%}else{ %>-<%} %></td>
+							<td><%if(obj[8]!=null){%><%=sdf.format(obj[8])%><%}else{ %>-<%} %></td>
 							<td><div align="center">
-									<button type="submit" formaction="EditUser.htm" name="id" value="<%=obj[0] %>" class="btn btn-warning btn-sm edit">Edit</button>
-									<button type="submit" formaction="ViewUser.htm" name="id" value="<%=obj[0] %>" class="btn btn-warning btn-sm edit">View</button>
-									<button type="submit" formaction="DeleteUser.htm" onclick="return deleteUser();" name="id" value="<%=obj[0] %>" class="btn btn-danger btn-sm delete">Delete</button>
+									<button type="submit" formaction="EditUser.htm" name="id" value="<%=obj[0] %>" class="btn btn-sm icon-btn"><img alt="edit" src="view/images/writing.png"></button>
+									<button type="button" name="id" onclick="Preview()" value="<%=obj[0] %>" class="btn btn-sm icon-btn"><img alt="edit" src="view/images/preview3.png"></button>
+									<button type="submit" formaction="DeleteUser.htm" onclick="return deleteUser();" name="id" value="<%=obj[0] %>" class="btn btn-sm icon-btn"><img alt="edit" src="view/images/delete.png"></button>
 								</div>
 							</td>
 						</tr>
@@ -94,6 +96,20 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");%>
 				</table><br>
 					<center><button type="submit" formaction="AddUser.htm" class="btn btn-primary btn-sm add">Add</button></center>
 			</form>
+		</div>
+	</div>
+	<div class="modal bd-example-modal-lg" tabindex="-1" role="dialog" id="digitization-details">
+		<div class="modal-dialog modal-lg" role="document"  style="min-width: 90% !important; min-height: 200px !important; display: flex; align-items: stretch;" >
+			<div class="modal-content">
+				<div class="modal-header" style="background-color: rgba(0,0,0,.03);max-height:55px;">
+		   			<div style="float: right;padding:5px;margin-top:-14px; ">
+		  	  			<div class="btn-group TogglePreviewModal"> 
+		         			<h4  id="model-card-header" >User Preview</h4>
+						</div>
+					</div>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -109,6 +125,9 @@ function deleteUser() {
 	} else {
 		return false;
 	}
+}
+function Preview(){
+	$('#digitization-details').modal('show');
 }
 </script>
 </html>

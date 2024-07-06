@@ -192,11 +192,24 @@ public class ComputerController {
 	public String saveAddUser(HttpServletRequest req, HttpServletResponse resp, RedirectAttributes redir) throws Exception {
 		try {
 			UserEntity user = new UserEntity();
-			user.setUserName(req.getParameter("username"));
+			user.setFirstName(req.getParameter("firstname"));
+			user.setSecondName(req.getParameter("secondname"));
 			user.setDateOfBirth(req.getParameter("dob"));
-			user.setAddress(req.getParameter("address"));
 			user.setGender(req.getParameter("gender"));
+			user.setMobile(Long.parseLong(req.getParameter("mobile")));
+			user.setMaritialStatus(req.getParameter("maritalstatus"));
+			user.setOfficeMail(req.getParameter("officemail"));
+			user.setPersonalMail(req.getParameter("personalmail"));
+			user.setAadhar(Long.parseLong(req.getParameter("aadhar")));
 			user.setDateOfJoin(req.getParameter("doj"));
+			user.setPan(req.getParameter("pan"));
+			user.setUan(req.getParameter("uan"));
+			user.setBankName(req.getParameter("bankname"));
+			user.setAccountNumber(req.getParameter("accountnumber"));
+			user.setIfsc(req.getParameter("ifsccode"));
+			user.setBranch(req.getParameter("branch"));
+			user.setAddress(req.getParameter("address"));
+			
 			user.setCreatedDate(dtf.format(now));
 			int saveUser = service.saveAddUser(user);
 			return "redirect:/UserList.htm";
@@ -236,11 +249,23 @@ public class ComputerController {
 		try {
 			UserEntity user = new UserEntity();
 			user.setUserId(Integer.parseInt(req.getParameter("id")));
-			user.setUserName(req.getParameter("username"));
-			user.setGender(req.getParameter("gender"));
-			user.setAddress(req.getParameter("address"));
+			user.setFirstName(req.getParameter("firstname"));
+			user.setSecondName(req.getParameter("secondName"));
 			user.setDateOfBirth(req.getParameter("dob"));
-			user.setDateOfJoin(req.getParameter("doj"));
+			user.setGender(req.getParameter("gender"));
+			user.setMobile(Long.parseLong(req.getParameter("mobile")));
+			user.setMaritialStatus(req.getParameter("maritalstatus"));
+			user.setOfficeMail(req.getParameter("officemail"));
+			user.setPersonalMail(req.getParameter("personalmail"));
+			user.setAadhar(Long.parseLong(req.getParameter("aadhar")));
+			user.setDateOfBirth(req.getParameter("doj"));
+			user.setPan(req.getParameter("pan"));
+			user.setUan(req.getParameter("uan"));
+			user.setBankName(req.getParameter("bankname"));
+			user.setAccountNumber(req.getParameter("accountnumber"));
+			user.setIfsc(req.getParameter("ifsccode"));
+			user.setBranch(req.getParameter("branch"));
+			user.setAddress(req.getParameter("address"));
 			user.setModifiedDate(dtf.format(now));
 			int updateUser = service.updateEditUser(user);
 			return "redirect:/UserList.htm";

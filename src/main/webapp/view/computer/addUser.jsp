@@ -63,7 +63,7 @@ table{
 	<div class="card-body" style="width: 99%; padding:0">
 		<div class="table-responsive" style="width: 50%; margin: auto;padding: 10px;">
 			<form>
-	  			<table class="table  "  >
+	  			<table class="table"  >
 	      			<tr>
 	      				<th><label >First Name :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="text" name="firstname" class="form-control form-control" placeholder="First Name" maxlength="30" style="font-size: 15px;" required></td>
@@ -84,21 +84,27 @@ table{
 	       			<tr>
 	      				<th><label >Mobile :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="text" name="mobile" id="numberField" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Mobile" maxlength="10" style="font-size: 15px;" required></td>
+	      				<th><label >Marital Status :<span class="mandatory" style="color: red;">*</span></label></th>
+	      				<td><select name="maritalstatus" class="form-control form-control" style="font-size: 15px;" required>
+	      						<option  selected disabled>--Select--</option>
+	      						<option value="Single">Single</option>
+	      						<option value="Married">Married</option>
+	      						<option value="Widowed">Widowed</option>
+	      						<option value="Divorced">Divorced</option>
+	      					</select></td>
+	      			</tr>
+	       			<tr>
+	      				<th><label>Office Mail :</label></th>
+	      				<td><input type="email" name="officemail" class="form-control form-control" placeholder="Office Mail" maxlength="50" style="font-size: 15px;"></td>
 	      				<th><label >Personal Mail :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="email" name="personalmail" class="form-control form-control" placeholder="Personal Mail" maxlength="50" style="font-size: 15px;" required></td>
 	       			</tr>
 	       			<tr>
-	      				<th><label >Office Mail :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="email" name="officemail" class="form-control form-control" placeholder="Office Mail" maxlength="50" style="font-size: 15px;" required></td>
-	      				<th><label >Marital Status :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="text" name="maritalstatus" class="form-control form-control" placeholder="Marital Status" maxlength="10" style="font-size: 15px;" required></td>
-	       			</tr>
-	       			<tr>
 	      				<th><label >Aadhar :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="text" name="aadhar" id="numberField" onkeypress="return isNumberKey(event)" class="form-control form-control" placeholder="Aadhar" maxlength="12" style="font-size: 15px;" required></td>
-	      				<th><label >Address :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="text" name="address" class="form-control form-control" placeholder="Address" maxlength="255" style="font-size: 15px;" required></td>
-	       			</tr>
+	      				<th><label >Date of Joining :<span class="mandatory" style="color: red;">*</span></label></th>
+	      				<td><input type="date" name="doj" class="form-control form-control" placeholder="Date of Joining" style="font-size: 15px;" required></td>
+	      			</tr>
 	       			<tr>
 	      				<th><label >PAN :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="text" name="pan" class="form-control form-control" placeholder="PAN" maxlength="20" style="font-size: 15px;" required></td>
@@ -114,14 +120,13 @@ table{
 	       			<tr>
 	      				<th><label >IFSC Code :<span class="mandatory" style="color: red;">*</span></label></th>
 	      				<td><input type="text" name="ifsccode" class="form-control form-control" placeholder="IFSC Code" maxlength="20" style="font-size: 15px;" required></td>
-	      				<th><label >IFSC Code :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="text" name="ifsccode" class="form-control form-control" placeholder="IFSC Code" maxlength="20" style="font-size: 15px;" required></td>
+	       				<th><label >Branch :<span class="mandatory" style="color: red;">*</span></label></th>
+	      				<td><input type="text" name="branch" class="form-control form-control" placeholder="Branch" maxlength="255" style="font-size: 15px;" required></td>
 	       			</tr>
 	       			<tr>
-	      				<th><label >Branch :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="text" name="branch" class="form-control form-control" placeholder="Branch" maxlength="255" style="font-size: 15px;" required></td>
-	      				<th><label >Date of Joining :<span class="mandatory" style="color: red;">*</span></label></th>
-	      				<td><input type="date" name="doj" class="form-control form-control" placeholder="Date of Joining" style="font-size: 15px;" required></td>
+	      				<th><label >Address :<span class="mandatory" style="color: red;">*</span></label></th>
+	      				<td colspan="3"><textarea name="address" class="form-control form-control" placeholder="Address" maxlength="255" style="font-size: 15px;" required></textarea></td>
+	       			
 	       			</tr>
 	       			<tr>
 	       				<td colspan="4">
